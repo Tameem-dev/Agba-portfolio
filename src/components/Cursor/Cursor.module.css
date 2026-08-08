@@ -1,0 +1,63 @@
+.dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  margin: -3px;
+  background: var(--emerald);
+  border-radius: 50%;
+  z-index: 999;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  margin: -18px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  z-index: 998;
+  pointer-events: none;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out),
+    margin 0.3s var(--ease-out), border-color 0.3s var(--ease-out),
+    background 0.3s var(--ease-out);
+}
+
+.ring.hover,
+.ring.link {
+  width: 64px;
+  height: 64px;
+  margin: -32px;
+  background: var(--emerald-soft);
+  border-color: var(--emerald);
+}
+
+.ring.view {
+  width: 96px;
+  height: 96px;
+  margin: -48px;
+  background: var(--surface);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot, .ring { display: none; }
+}

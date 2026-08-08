@@ -1,0 +1,117 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(8, 9, 11, 0.6);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid var(--line);
+}
+
+.progressBar {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--emerald));
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--sp-3) var(--edge-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-5);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.logoAccent {
+  color: var(--emerald);
+}
+
+.links {
+  display: flex;
+  gap: var(--sp-5);
+}
+
+.link {
+  position: relative;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.25s var(--ease-out);
+}
+
+.link:hover,
+.link.active {
+  color: var(--text);
+}
+
+.linkIndex {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  color: var(--text-faint);
+}
+
+.link.active .linkIndex {
+  color: var(--emerald);
+}
+
+.resumeBtn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 100px;
+  color: var(--text);
+  transition: border-color 0.25s var(--ease-out), background 0.25s var(--ease-out);
+}
+
+.resumeBtn:hover {
+  border-color: var(--emerald);
+  background: var(--emerald-soft);
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background: var(--line-strong);
+  align-self: center;
+}
+
+.pageLink {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  transition: color 0.25s var(--ease-out);
+}
+
+.pageLink:hover,
+.pageLink.active {
+  color: var(--emerald);
+}
+
+@media (max-width: 760px) {
+  .links {
+    display: none;
+  }
+}

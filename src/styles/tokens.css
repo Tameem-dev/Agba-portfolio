@@ -1,0 +1,71 @@
+:root {
+  /* ---- Color: dark, engineered, three accents each with one job ---- */
+  --void: #08090b;         /* page background */
+  --graphite: #101216;     /* section alt background */
+  --surface: #16181d;      /* card surface */
+  --surface-hover: #1c1f26;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+
+  --text: #eef0f2;
+  --text-muted: #9199a4;
+  --text-faint: #5b626d;
+
+  --blue: #3b82f6;      /* electric blue — interactive / links / focus */
+  --emerald: #17e9a6;   /* neon emerald — success / metrics / active state */
+  --violet: #9b6bff;    /* purple accent — rare emphasis only */
+
+  --blue-soft: rgba(59, 130, 246, 0.12);
+  --emerald-soft: rgba(23, 233, 166, 0.12);
+  --violet-soft: rgba(155, 107, 255, 0.12);
+
+  /* ---- Type ---- */
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --fs-2xs: 0.6875rem;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.625rem;
+  --fs-2xl: 2.25rem;
+  --fs-3xl: 3.25rem;
+  --fs-4xl: 4.5rem;
+  --fs-5xl: 6.5rem;
+
+  /* ---- Spacing (8pt-derived) ---- */
+  --sp-1: 0.5rem;
+  --sp-2: 0.75rem;
+  --sp-3: 1rem;
+  --sp-4: 1.5rem;
+  --sp-5: 2rem;
+  --sp-6: 3rem;
+  --sp-7: 4.5rem;
+  --sp-8: 6.5rem;
+  --sp-9: 9rem;
+
+  --section-pad: clamp(4.5rem, 10vw, 9rem);
+  --edge-pad: clamp(1.25rem, 5vw, 5rem);
+  --content-max: 1280px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.25s;
+  --dur-base: 0.5s;
+  --dur-slow: 0.9s;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  --shadow-glow-blue: 0 0 60px -12px rgba(59, 130, 246, 0.35);
+  --shadow-glow-emerald: 0 0 60px -12px rgba(23, 233, 166, 0.3);
+  --shadow-card: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: light) {
+  /* Reserved for future light-mode pass (Apple-like) — dark is the primary experience for now */
+}

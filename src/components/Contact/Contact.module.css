@@ -1,0 +1,134 @@
+.section {
+  padding: var(--section-pad) 0;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--sp-7);
+  align-items: start;
+}
+
+.headline {
+  font-size: clamp(1.75rem, 4vw, var(--fs-3xl));
+  margin-top: var(--sp-3);
+  max-width: 16ch;
+}
+
+.sub {
+  color: var(--text-muted);
+  margin-top: var(--sp-3);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.socials a:hover {
+  color: var(--emerald);
+}
+
+.calendarLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--emerald);
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form input,
+.form textarea {
+  background: var(--void);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  resize: vertical;
+  transition: border-color 0.25s var(--ease-out);
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: var(--emerald);
+  outline: none;
+}
+
+.inputError {
+  border-color: #f16969 !important;
+}
+
+.error {
+  font-size: var(--fs-2xs);
+  color: #f16969;
+  font-family: var(--font-mono);
+}
+
+.submit {
+  margin-top: var(--sp-2);
+  align-self: flex-start;
+  padding: 0.85rem 1.8rem;
+  border-radius: 100px;
+  background: linear-gradient(120deg, var(--blue), var(--emerald));
+  color: var(--void);
+  font-weight: 500;
+  box-shadow: var(--shadow-glow-emerald);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.successToast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-xs);
+  color: var(--emerald);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+}

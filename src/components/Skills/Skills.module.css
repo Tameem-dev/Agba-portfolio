@@ -1,0 +1,109 @@
+.section {
+  padding: var(--section-pad) 0;
+  background: var(--graphite);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.headline {
+  font-size: clamp(1.75rem, 3.4vw, var(--fs-2xl));
+  margin-top: var(--sp-3);
+}
+
+.sub {
+  color: var(--text-muted);
+  margin-top: var(--sp-2);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+}
+
+.tab {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  color: var(--text-muted);
+  transition: border-color 0.25s var(--ease-out), color 0.25s var(--ease-out), background 0.25s var(--ease-out);
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tabActive {
+  border-color: var(--emerald);
+  background: var(--emerald-soft);
+  color: var(--text);
+}
+
+.grid {
+  margin-top: var(--sp-6);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4);
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  will-change: transform;
+}
+
+.card:hover {
+  border-color: var(--emerald);
+  box-shadow: var(--shadow-glow-emerald);
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.skillName {
+  font-size: var(--fs-base);
+  font-weight: 500;
+}
+
+.skillPercent {
+  font-family: var(--font-mono);
+  color: var(--emerald);
+  font-size: var(--fs-sm);
+}
+
+.barTrack {
+  margin-top: var(--sp-3);
+  height: 4px;
+  border-radius: 4px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--emerald));
+}
+
+.skillMeta {
+  display: block;
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+}

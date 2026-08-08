@@ -1,0 +1,339 @@
+.page {
+  padding-top: calc(var(--sp-8) + 2rem);
+  padding-bottom: var(--sp-9);
+  min-height: 100vh;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, var(--fs-3xl));
+  margin-top: var(--sp-3);
+  font-family: var(--font-mono);
+}
+
+.sub {
+  color: var(--text-muted);
+  margin-top: var(--sp-2);
+  max-width: 50ch;
+}
+
+.status {
+  margin-top: var(--sp-6);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+.status a {
+  color: var(--emerald);
+}
+
+/* --- Profile card --- */
+
+.profileCard {
+  margin-top: var(--sp-6);
+  display: flex;
+  gap: var(--sp-5);
+  padding: var(--sp-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  flex-shrink: 0;
+}
+
+.profileInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.profileHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.profileName {
+  font-size: var(--fs-xl);
+}
+
+.profileBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-xs);
+  padding: 0.55rem 1.1rem;
+  border-radius: 100px;
+  background: linear-gradient(120deg, var(--blue), var(--emerald));
+  color: var(--void);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.profileBio {
+  margin-top: var(--sp-2);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  max-width: 60ch;
+}
+
+.profileMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-top: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.profileMeta span,
+.profileMeta a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profileMeta a:hover {
+  color: var(--emerald);
+}
+
+.statsRow {
+  display: flex;
+  gap: var(--sp-6);
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  color: var(--emerald);
+}
+
+.statLabel {
+  font-size: var(--fs-2xs);
+  color: var(--text-faint);
+}
+
+/* --- Heatmap --- */
+
+.heatmapBlock {
+  margin-top: var(--sp-6);
+}
+
+.colLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: var(--sp-2);
+}
+
+.heatmap {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+
+.heatmapNote {
+  font-size: var(--fs-2xs);
+  color: var(--text-faint);
+  margin-top: var(--sp-2);
+  font-style: italic;
+}
+
+.heatmapNote a {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+/* --- Repo controls --- */
+
+.repoHeader {
+  margin-top: var(--sp-7);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.repoControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  align-items: center;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--void);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  color: var(--text-faint);
+}
+
+.searchBox input {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: var(--fs-xs);
+  min-width: 140px;
+}
+
+.searchBox input:focus {
+  outline: none;
+}
+
+.select {
+  background: var(--void);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  color: var(--text);
+  font-size: var(--fs-xs);
+}
+
+.sortTabs {
+  display: flex;
+  gap: 4px;
+  background: var(--void);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 3px;
+}
+
+.sortTab {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+  color: var(--text-faint);
+}
+
+.sortActive {
+  background: var(--emerald-soft);
+  color: var(--emerald);
+}
+
+/* --- Repo grid --- */
+
+.repoGrid {
+  margin-top: var(--sp-5);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.empty {
+  grid-column: 1 / -1;
+  color: var(--text-faint);
+  padding: var(--sp-6) 0;
+  text-align: center;
+}
+
+.repoCard {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4);
+  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.repoCard:hover {
+  border-color: var(--emerald);
+  transform: translateY(-4px);
+}
+
+.repoTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-faint);
+}
+
+.repoName {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text);
+}
+
+.repoDesc {
+  margin-top: var(--sp-2);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  min-height: 2.6em;
+}
+
+.repoMeta {
+  margin-top: var(--sp-3);
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.repoMeta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.repoUpdated {
+  margin-left: auto;
+}
+
+/* --- Footer CTA --- */
+
+.footerCta {
+  margin-top: var(--sp-7);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+}
+
+.footerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  padding: 0.8rem 1.6rem;
+  border-radius: 100px;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+}
+
+.footerBtn:hover {
+  border-color: var(--emerald);
+  background: var(--emerald-soft);
+}
+
+@media (max-width: 900px) {
+  .repoGrid { grid-template-columns: repeat(2, 1fr); }
+  .profileCard { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .repoGrid { grid-template-columns: 1fr; }
+  .repoControls { width: 100%; }
+  .searchBox { flex: 1; }
+}

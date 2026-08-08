@@ -4,12 +4,12 @@ import { FiGithub, FiArrowUpRight } from 'react-icons/fi';
 import { projects } from '../../data/content';
 import styles from './Work.module.css';
 
-import finflow from './../../assets/finflow.png';
-import nocturne from './../../assets/nocturne.png';
-import devbridge from './../../assets/devbridge.png';
-import foodbridge from './../../assets/foodbridge.png';
-import chucksKitchen from './../../assets/chucks-kitchen.png';
-import estatein from './../../assets/estatien.png';
+import finflow from '../../assets/finflow.png';
+import nocturne from '../../assets/nocturne.png';
+import devbridge from '../../assets/devbridge.png';
+import foodbridge from '../../assets/foodbridge.png';
+import chucksKitchen from '../../assets/chucks-kitchen.png';
+import estatein from '../../assets/estatien.png';
 
 export const projectImages = {
   finflow,
@@ -22,11 +22,21 @@ export const projectImages = {
 
 export default function Work() {
   return (
-    <section id="work" className={styles.section}>
-      <div className="container">
-        <p className="eyebrow">04 — Work</p>
-        <h2 className={styles.headline}>Selected projects</h2>
-        <p className={styles.hint}>Open a project for the full case study — problem, architecture, and what I'd change next.</p>
+    <section className={styles.section} id="work">
+      <div className={styles.container}>
+
+        <div className={styles.intro}>
+          <span className={styles.eyebrow}>04 — Work</span>
+
+          <h2 className={styles.title}>
+            Selected projects
+          </h2>
+
+          <p className={styles.description}>
+            Open a project for the full case study — problem, architecture,
+            and what I'd change next.
+          </p>
+        </div>
 
         <div className={styles.grid}>
           {projects.map((p, i) => (
@@ -36,7 +46,10 @@ export default function Work() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: (i % 3) * 0.08 }}
+              transition={{
+                duration: 0.55,
+                delay: (i % 3) * 0.08,
+              }}
             >
               <Link
                 to={`/work/${p.id}`}
@@ -48,7 +61,7 @@ export default function Work() {
                   <div className={styles.thumbWrap}>
                     <img
                       src={projectImages[p.id]}
-                      alt={p.name}
+                      alt={`${p.name} screenshot`}
                       className={styles.thumb}
                       loading="lazy"
                     />
@@ -56,20 +69,40 @@ export default function Work() {
                 )}
 
                 <div className={styles.cardTop}>
-                  <span className={styles.tag}>{p.tag}</span>
-                  <span className={styles.year}>{p.year}</span>
+                  <span className={styles.tag}>
+                    {p.tag}
+                  </span>
+
+                  <span className={styles.year}>
+                    {p.year}
+                  </span>
                 </div>
-                <h3 className={styles.name}>{p.name}</h3>
-                <p className={styles.desc}>{p.description}</p>
+
+                <h3 className={styles.name}>
+                  {p.name}
+                </h3>
+
+                <p className={styles.desc}>
+                  {p.description}
+                </p>
+
                 <div className={styles.stackRow}>
-                  {p.stack.map((s) => (
-                    <span key={s} className={styles.pill}>{s}</span>
+                  {p.stack?.map((s) => (
+                    <span
+                      key={s}
+                      className={styles.pill}
+                    >
+                      {s}
+                    </span>
                   ))}
                 </div>
+
                 <span className={styles.readMore}>
-                  View case study <FiArrowUpRight />
+                  View case study
+                  <FiArrowUpRight />
                 </span>
               </Link>
+
               <a
                 href={p.github}
                 target="_blank"
@@ -84,6 +117,7 @@ export default function Work() {
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

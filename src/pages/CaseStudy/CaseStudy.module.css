@@ -1,7 +1,12 @@
 .page {
+  min-height: 100vh;
   padding-top: calc(var(--sp-8) + 2rem);
   padding-bottom: var(--sp-9);
-  min-height: 100vh;
+}
+
+.container {
+  width: min(100% - 2rem, 1100px);
+  margin: 0 auto;
 }
 
 .back {
@@ -11,6 +16,8 @@
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.25s var(--ease-out);
 }
 
 .back:hover {
@@ -23,6 +30,7 @@
 }
 
 .tag {
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   color: var(--emerald);
@@ -31,14 +39,16 @@
 }
 
 .title {
-  font-size: clamp(2.25rem, 6vw, var(--fs-4xl));
   margin-top: var(--sp-3);
+  font-size: clamp(2.25rem, 6vw, var(--fs-4xl));
+  line-height: 1.05;
 }
 
 .description {
+  margin-top: var(--sp-4);
   color: var(--text-muted);
   font-size: var(--fs-lg);
-  margin-top: var(--sp-4);
+  line-height: 1.7;
 }
 
 .linkRow {
@@ -53,24 +63,42 @@
 .linkBtnDisabled {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  font-size: var(--fs-sm);
   padding: 0.7rem 1.3rem;
   border-radius: 100px;
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  transition:
+    border-color 0.25s var(--ease-out),
+    background 0.25s var(--ease-out),
+    color 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
 }
 
 .linkBtn {
   border: 1px solid var(--line-strong);
+  color: var(--text);
 }
 
 .linkBtn:hover {
   border-color: var(--emerald);
   background: var(--emerald-soft);
+  transform: translateY(-2px);
 }
 
 .linkBtnPrimary {
-  background: linear-gradient(120deg, var(--blue), var(--emerald));
+  background: linear-gradient(
+    120deg,
+    var(--blue),
+    var(--emerald)
+  );
   color: var(--void);
+  border: 1px solid transparent;
+}
+
+.linkBtnPrimary:hover {
+  transform: translateY(-2px);
 }
 
 .linkBtnDisabled {
@@ -79,88 +107,119 @@
   cursor: default;
 }
 
+/* Project screenshot */
+
 .shot {
+  width: 100%;
   margin-top: var(--sp-7);
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg);
   border: 1px dashed var(--line-strong);
-  background: linear-gradient(135deg, var(--surface), var(--graphite));
+  background: linear-gradient(
+    135deg,
+    var(--surface),
+    var(--graphite)
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: var(--sp-5);
+  overflow: hidden;
+}
+
+.shotMedia {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 1px);
 }
 
 .shotLabel {
+  max-width: 26ch;
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   color: var(--text-faint);
-  max-width: 26ch;
 }
 
+/* Case study body */
+
 .body {
+  max-width: 46rem;
   margin-top: var(--sp-7);
   display: flex;
   flex-direction: column;
   gap: var(--sp-7);
-  max-width: 46rem;
+}
+
+.section {
+  width: 100%;
 }
 
 .sectionTitle {
   font-size: var(--fs-xl);
+  line-height: 1.2;
 }
 
 .sectionText {
-  color: var(--text-muted);
   margin-top: var(--sp-3);
+  color: var(--text-muted);
+  line-height: 1.8;
 }
 
+/* Lists */
+
 .list {
-  margin-top: var(--sp-3);
   display: flex;
   flex-direction: column;
   gap: var(--sp-2);
+  margin-top: var(--sp-3);
+  padding: 0;
+  list-style: none;
   color: var(--text-muted);
 }
 
 .list li {
-  padding-left: var(--sp-3);
   position: relative;
+  padding-left: var(--sp-3);
+  line-height: 1.7;
 }
 
 .list li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.6em;
+  top: 0.7em;
   width: 5px;
   height: 5px;
   border-radius: 50%;
   background: var(--emerald);
 }
 
+/* Challenges */
+
 .challengeGrid {
-  margin-top: var(--sp-3);
   display: flex;
   flex-direction: column;
   gap: var(--sp-4);
+  margin-top: var(--sp-3);
 }
 
 .challengeCard {
+  padding: var(--sp-4);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  padding: var(--sp-4);
 }
 
 .challengeLabel {
+  margin-top: var(--sp-3);
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
+  color: var(--text-faint);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-faint);
-  margin-top: var(--sp-3);
 }
 
 .challengeLabel:first-child {
@@ -168,10 +227,13 @@
 }
 
 .challengeText {
+  margin-top: 4px;
   color: var(--text-muted);
   font-size: var(--fs-sm);
-  margin-top: 4px;
+  line-height: 1.7;
 }
+
+/* Stack */
 
 .stackRow {
   display: flex;
@@ -181,54 +243,67 @@
 }
 
 .pill {
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
-  color: var(--text-muted);
-  border: 1px solid var(--line);
-  padding: 3px 9px;
-  border-radius: 100px;
 }
+
+/* Metrics */
 
 .metricsRow {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--sp-6);
   margin-top: var(--sp-3);
-  flex-wrap: wrap;
+}
+
+.metric {
+  min-width: 100px;
 }
 
 .metricValue {
   display: block;
+  color: var(--emerald);
   font-family: var(--font-display);
   font-size: var(--fs-2xl);
-  color: var(--emerald);
+  line-height: 1.1;
 }
 
 .metricValuePlaceholder {
   display: block;
+  color: var(--text-faint);
   font-family: var(--font-display);
   font-size: var(--fs-2xl);
-  color: var(--text-faint);
+  line-height: 1.1;
 }
 
 .metricLabel {
-  font-size: var(--fs-xs);
+  display: block;
+  margin-top: 4px;
   color: var(--text-faint);
+  font-size: var(--fs-xs);
 }
 
 .metricsNote {
   margin-top: var(--sp-3);
-  font-size: var(--fs-xs);
   color: var(--text-faint);
+  font-size: var(--fs-xs);
   font-style: italic;
+  line-height: 1.6;
 }
 
+/* Previous / Next */
+
 .nav {
-  margin-top: var(--sp-8);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--sp-4);
-  border-top: 1px solid var(--line);
+  margin-top: var(--sp-8);
   padding-top: var(--sp-6);
+  border-top: 1px solid var(--line);
 }
 
 .navCard {
@@ -238,11 +313,17 @@
   padding: var(--sp-4);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  transition: border-color 0.3s var(--ease-out);
+  text-decoration: none;
+  transition:
+    border-color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out),
+    background 0.3s var(--ease-out);
 }
 
 .navCard:hover {
   border-color: var(--emerald);
+  background: var(--surface);
+  transform: translateY(-3px);
 }
 
 .navCardRight {
@@ -258,34 +339,54 @@
 }
 
 .navName {
+  color: var(--text);
   font-size: var(--fs-lg);
 }
 
-.shot {
-  margin-top: var(--sp-7);
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-lg);
-  border: 1px dashed var(--line-strong);
-  background: linear-gradient(135deg, var(--surface), var(--graphite));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: var(--sp-5);
-  overflow: hidden;
-}
+/* Responsive */
 
-.shotMedia {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: calc(var(--radius-lg) - 1px);
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 1.5rem, 1100px);
+  }
+
+  .title {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  .description {
+    font-size: var(--fs-md);
+  }
+
+  .body {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
+  .page {
+    padding-top: calc(var(--sp-7) + 1rem);
+  }
+
+  .linkRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .linkBtn,
+  .linkBtnPrimary,
+  .linkBtnDisabled {
+    width: 100%;
+  }
+
+  .shot {
+    aspect-ratio: 4 / 3;
+  }
+
   .nav {
     grid-template-columns: 1fr;
   }
+
   .navCardRight {
     text-align: left;
     align-items: flex-start;

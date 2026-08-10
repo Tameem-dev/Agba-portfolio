@@ -3,10 +3,12 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
+
   background: rgba(8, 9, 11, 0.6);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
+
   border-bottom: 1px solid var(--line);
 }
 
@@ -14,47 +16,79 @@
   position: absolute;
   bottom: -1px;
   left: 0;
+
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--emerald));
+
+  background: linear-gradient(
+    90deg,
+    var(--blue),
+    var(--emerald)
+  );
+
   transform-origin: left;
-  transform: scaleX(0);
 }
 
 .inner {
   max-width: var(--content-max);
   margin: 0 auto;
+
   padding: var(--sp-3) var(--edge-pad);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: var(--sp-5);
 }
+
+/* =========================
+   LOGO
+========================= */
 
 .logo {
   font-family: var(--font-mono);
   font-size: var(--fs-base);
   letter-spacing: 0.02em;
   font-weight: 600;
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  white-space: nowrap;
 }
 
 .logoAccent {
   color: var(--emerald);
 }
 
+/* =========================
+   DESKTOP LINKS
+========================= */
+
 .links {
   display: flex;
+  align-items: center;
   gap: var(--sp-5);
 }
 
 .link {
   position: relative;
+
   font-size: var(--fs-xs);
   color: var(--text-muted);
+
   display: flex;
   align-items: center;
+
   gap: 6px;
-  transition: color 0.25s var(--ease-out);
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s var(--ease-out),
+    opacity 0.25s var(--ease-out);
 }
 
 .link:hover,
@@ -65,6 +99,7 @@
 .linkIndex {
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
+
   color: var(--text-faint);
 }
 
@@ -72,36 +107,24 @@
   color: var(--emerald);
 }
 
-.resumeBtn {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 100px;
-  color: var(--text);
-  transition: border-color 0.25s var(--ease-out), background 0.25s var(--ease-out);
-}
-
-.resumeBtn:hover {
-  border-color: var(--emerald);
-  background: var(--emerald-soft);
-}
-
-.divider {
-  width: 1px;
-  height: 14px;
-  background: var(--line-strong);
-  align-self: center;
-}
+/* =========================
+   PAGE LINKS
+========================= */
 
 .pageLink {
   font-family: var(--font-mono);
   font-size: var(--fs-2xs);
+
   color: var(--text-faint);
+
   text-transform: uppercase;
   letter-spacing: 0.06em;
+
   display: flex;
   align-items: center;
+
+  text-decoration: none;
+
   transition: color 0.25s var(--ease-out);
 }
 
@@ -110,8 +133,387 @@
   color: var(--emerald);
 }
 
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+  width: 1px;
+  height: 14px;
+
+  background: var(--line-strong);
+
+  align-self: center;
+}
+
+/* =========================
+   RESUME BUTTON
+========================= */
+
+.resumeBtn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+
+  padding: 0.5rem 1rem;
+
+  border: 1px solid var(--line-strong);
+  border-radius: 100px;
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.25s var(--ease-out),
+    background 0.25s var(--ease-out);
+}
+
+.resumeBtn:hover {
+  border-color: var(--emerald);
+  background: var(--emerald-soft);
+}
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menuButton {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: var(--text);
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s var(--ease-out),
+    background 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
+}
+
+.menuButton:hover {
+  border-color: var(--emerald);
+  background: var(--emerald-soft);
+}
+
+.menuButtonOpen {
+  border-color: var(--emerald);
+}
+
+.menuIcon {
+  width: 17px;
+  height: 17px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+}
+
+.menuIcon > span:not(.closeLineOne):not(.closeLineTwo) {
+  display: block;
+
+  width: 17px;
+  height: 1.5px;
+
+  background: currentColor;
+
+  border-radius: 2px;
+}
+
+/* =========================
+   CLOSE ICON
+========================= */
+
+.closeLineOne,
+.closeLineTwo {
+  position: absolute;
+
+  width: 18px;
+  height: 1.5px;
+
+  background: currentColor;
+
+  border-radius: 2px;
+}
+
+.closeLineOne {
+  transform: rotate(45deg);
+}
+
+.closeLineTwo {
+  transform: rotate(-45deg);
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobileMenu {
+  display: none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 760px) {
-  .links {
+  .nav {
+    background: rgba(8, 9, 11, 0.82);
+
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+  }
+
+  .inner {
+    padding: 0.85rem var(--edge-pad);
+
+    min-height: 64px;
+  }
+
+  .links,
+  .resumeBtn {
     display: none;
+  }
+
+  .menuButton {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  /* Full mobile navigation */
+  .mobileMenu {
+    position: fixed;
+
+    display: block;
+
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 999;
+
+    background: rgba(8, 9, 11, 0.97);
+
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+
+    overflow-y: auto;
+
+    border-top: 1px solid var(--line);
+  }
+
+  .mobileMenuInner {
+    width: 100%;
+    max-width: var(--content-max);
+
+    margin: 0 auto;
+
+    padding: 2rem var(--edge-pad) 3rem;
+
+    min-height: calc(100% - 5rem);
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobileLinks {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobileLink,
+  .mobilePageLink {
+    width: 100%;
+
+    min-height: 64px;
+
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--line);
+
+    transition:
+      color 0.25s ease,
+      padding-left 0.25s ease;
+  }
+
+  .mobileLink {
+    gap: 14px;
+
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
+
+    color: var(--text-muted);
+  }
+
+  .mobilePageLink {
+    justify-content: space-between;
+
+    font-family: var(--font-mono);
+
+    font-size: 0.8rem;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: var(--text-muted);
+  }
+
+  .mobileLink:hover,
+  .mobilePageLink:hover,
+  .mobileActive {
+    color: var(--text);
+  }
+
+  .mobileActive {
+    color: var(--emerald) !important;
+  }
+
+  .mobileLink:hover {
+    padding-left: 8px;
+  }
+
+  .mobileLinkIndex {
+    font-family: var(--font-mono);
+
+    font-size: 0.65rem;
+
+    color: var(--text-faint);
+
+    min-width: 24px;
+  }
+
+  .mobileActive .mobileLinkIndex {
+    color: var(--emerald);
+  }
+
+  .mobileArrow {
+    margin-left: auto;
+
+    font-family: var(--font-mono);
+
+    font-size: 0.9rem;
+
+    color: var(--text-faint);
+
+    transition: color 0.25s ease;
+  }
+
+  .mobileLink:hover .mobileArrow,
+  .mobilePageLink:hover .mobileArrow,
+  .mobileActive .mobileArrow {
+    color: var(--emerald);
+  }
+
+  .mobileDivider {
+    height: 1px;
+
+    margin: 1.25rem 0 0;
+
+    background: var(--line-strong);
+  }
+
+  /* Mobile resume */
+  .mobileResume {
+    margin-top: 2rem;
+
+    min-height: 56px;
+
+    padding: 0 1.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid var(--line-strong);
+    border-radius: 100px;
+
+    background: var(--emerald-soft);
+
+    color: var(--text);
+
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+
+    text-decoration: none;
+
+    transition:
+      border-color 0.25s ease,
+      background 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .mobileResume:hover {
+    border-color: var(--emerald);
+    transform: translateY(-2px);
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 420px) {
+  .inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mobileMenuInner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mobileLink {
+    min-height: 58px;
+  }
+
+  .mobilePageLink {
+    min-height: 58px;
+  }
+
+  .menuButton {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 340px) {
+  .logo {
+    font-size: 0.9rem;
+  }
+
+  .menuButton {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mobileMenuInner {
+    padding-top: 1.25rem;
+  }
+
+  .mobileLink {
+    font-size: 1rem;
   }
 }

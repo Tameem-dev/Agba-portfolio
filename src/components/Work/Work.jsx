@@ -8,7 +8,7 @@ import finflow from '../../assets/finflow.png';
 import nocturne from '../../assets/nocturne.png';
 import devbridge from '../../assets/devbridge.png';
 import foodbridge from '../../assets/foodbridge.png';
-import chucksKitchen from '../../assets/chucks-kitchen.png';
+import chucksKitchen from "../../assets/chucks-Kitchen.png";
 import estatein from '../../assets/estatien.png';
 
 export const projectImages = {

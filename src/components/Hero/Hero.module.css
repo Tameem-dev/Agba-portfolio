@@ -1,3 +1,5 @@
+/* Hero.module.css */
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -5,6 +7,7 @@
   align-items: center;
   overflow: hidden;
   background: var(--void);
+  padding: 0;
 }
 
 .aurora {
@@ -40,12 +43,15 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-4);
+  width: 100%;
 }
 
 .title {
   font-size: clamp(2.75rem, 8vw, var(--fs-5xl));
   margin-top: var(--sp-3);
   max-width: 16ch;
+  line-height: 1.08;
+  word-break: break-word;
 }
 
 .title :global(.char) {
@@ -58,6 +64,7 @@
   font-size: var(--fs-lg);
   color: var(--text-muted);
   margin-top: var(--sp-2);
+  line-height: 1.6;
 }
 
 .codeLine {
@@ -98,16 +105,23 @@
   flex-wrap: wrap;
   gap: var(--sp-3);
   margin-top: var(--sp-4);
+  width: 100%;
 }
 
 .ctaPrimary,
 .ctaGhost {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 0.9rem 1.6rem;
   border-radius: 100px;
   font-size: var(--fs-sm);
   font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  min-width: 120px;
+  flex: 0 1 auto;
 }
 
 .ctaPrimary {
@@ -119,6 +133,7 @@
 .ctaGhost {
   border: 1px solid var(--line-strong);
   color: var(--text);
+  background: transparent;
 }
 
 .ctaGhost:hover {
@@ -141,6 +156,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-faint);
+  pointer-events: none;
 }
 
 .scrollLine {
@@ -155,6 +171,269 @@
   50% { opacity: 1; }
 }
 
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+/* Tablets and smaller laptops */
+@media (max-width: 1024px) {
+  .content {
+    padding-left: var(--edge-pad);
+    padding-right: var(--edge-pad);
+  }
+  
+  .title {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+  }
+}
+
+/* Large phones and small tablets */
+@media (max-width: 768px) {
+  .content {
+    padding-top: var(--sp-6);
+    padding-bottom: var(--sp-6);
+    gap: var(--sp-3);
+  }
+  
+  .title {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    max-width: 14ch;
+  }
+  
+  .tagline {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    max-width: 40ch;
+  }
+  
+  .codeLine {
+    font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    padding: var(--sp-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .ctaRow {
+    gap: var(--sp-2);
+  }
+  
+  .ctaPrimary,
+  .ctaGhost {
+    padding: 0.7rem 1.2rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    min-height: 44px;
+    min-width: 100px;
+  }
+  
+  .scrollCue {
+    bottom: var(--sp-4);
+    font-size: 0.6rem;
+  }
+  
+  .scrollLine {
+    height: 28px;
+  }
+}
+
+/* Phones and small devices */
 @media (max-width: 640px) {
-  .codeLine { font-size: 0.65rem; }
+  .content {
+    padding-top: var(--sp-4);
+    padding-bottom: var(--sp-4);
+    padding-left: calc(var(--edge-pad) * 0.75);
+    padding-right: calc(var(--edge-pad) * 0.75);
+    gap: var(--sp-2);
+  }
+  
+  .title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    max-width: 12ch;
+    margin-top: var(--sp-2);
+  }
+  
+  .tagline {
+    font-size: clamp(0.95rem, 3vw, 1rem);
+    max-width: 35ch;
+  }
+  
+  .codeLine {
+    font-size: clamp(0.55rem, 2vw, 0.65rem);
+    padding: var(--sp-1) var(--sp-2);
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .blinker {
+    width: 4px;
+    height: 10px;
+    flex-shrink: 0;
+  }
+  
+  .prompt {
+    flex-shrink: 0;
+  }
+  
+  .ctaRow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .ctaPrimary,
+  .ctaGhost {
+    padding: 0.6rem 1rem;
+    font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+    min-height: 40px;
+    min-width: 80px;
+    flex: 1 1 auto;
+    max-width: 180px;
+  }
+  
+  .scrollCue {
+    bottom: var(--sp-2);
+    font-size: 0.55rem;
+    gap: var(--sp-1);
+  }
+  
+  .scrollLine {
+    height: 24px;
+  }
+  
+  .aurora {
+    filter: blur(30px);
+    inset: -10%;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .title {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+    max-width: 10ch;
+  }
+  
+  .tagline {
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    max-width: 30ch;
+  }
+  
+  .codeLine {
+    font-size: clamp(0.5rem, 1.8vw, 0.6rem);
+    padding: var(--sp-1);
+  }
+  
+  .ctaPrimary,
+  .ctaGhost {
+    padding: 0.5rem 0.8rem;
+    font-size: clamp(0.7rem, 2vw, 0.75rem);
+    min-height: 36px;
+    min-width: 70px;
+    max-width: 150px;
+  }
+  
+  .ctaRow {
+    gap: var(--sp-1);
+  }
+}
+
+/* Landscape orientation on phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 100svh;
+    padding: 0;
+  }
+  
+  .content {
+    padding-top: var(--sp-2);
+    padding-bottom: var(--sp-2);
+    gap: var(--sp-1);
+  }
+  
+  .title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-top: var(--sp-1);
+  }
+  
+  .tagline {
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
+  }
+  
+  .codeLine {
+    font-size: clamp(0.5rem, 1.5vw, 0.6rem);
+    padding: var(--sp-1) var(--sp-2);
+  }
+  
+  .ctaPrimary,
+  .ctaGhost {
+    padding: 0.4rem 0.8rem;
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+    min-height: 32px;
+    min-width: 70px;
+  }
+  
+  .ctaRow {
+    gap: var(--sp-1);
+    margin-top: var(--sp-2);
+  }
+  
+  .scrollCue {
+    bottom: var(--sp-1);
+    font-size: 0.5rem;
+  }
+  
+  .scrollLine {
+    height: 18px;
+  }
+  
+  .aurora {
+    filter: blur(20px);
+    inset: -5%;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .ctaPrimary,
+  .ctaGhost {
+    cursor: default;
+  }
+  
+  .ctaGhost:hover {
+    border-color: var(--line-strong);
+    background: transparent;
+  }
+  
+  .ctaGhost:active {
+    border-color: var(--emerald);
+    background: var(--emerald-soft);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
+    transform: none;
+  }
+  
+  .blinker {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .scrollLine {
+    animation: none;
+    opacity: 0.5;
+  }
+  
+  .ctaPrimary,
+  .ctaGhost {
+    transition: none;
+  }
 }
